@@ -47,7 +47,7 @@ int main(void){
     ListNode* root = new ListNode(0), *ptr = root;
     while(stream >> num){
         ptr->next = new ListNode(num);
-	ptr = ptr->next;
+	    ptr = ptr->next;
     }
     Solution solution;
     ListNode* result = solution.removeNthFromEnd(root->next, n);
