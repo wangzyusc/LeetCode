@@ -25,6 +25,6 @@ int main(void){
   Solution solution;
   int result = solution.removeDuplicates(input);
   cout << "result length is " << result << endl;
-  viewVector(input);
+  viewVector(input, result);
   return 0;
 }

@@ -51,8 +51,8 @@ void viewLinkedList(ListNode* head){
     cout << "]" << endl;
 }
 
-void viewVector(vector<int>& vec){
-  int length = vec.size();
+void viewVector(vector<int>& vec, int length = -1){
+    if(length == -1) length = vec.size();
     cout << "[";
     for(int i = 0; i < length; i++){
         cout << vec[i];
