@@ -50,3 +50,13 @@ void viewLinkedList(ListNode* head){
     }
     cout << "]" << endl;
 }
+
+void viewVector(vector<int>& vec){
+  int length = vec.size();
+    cout << "[";
+    for(int i = 0; i < length; i++){
+        cout << vec[i];
+	if(i < length - 1) cout << ", ";
+    }
+    cout << "]" << endl;
+}
