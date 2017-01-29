@@ -29,7 +29,7 @@ public:
 	}
       }
     }
-    sort(nums.begin()+1+i, nums.end());
+    reverse(nums.begin()+1+i, nums.end());
   }
 };
 
