@@ -60,3 +60,10 @@ void viewVector(vector<int>& vec, int length = -1){
     }
     cout << "]" << endl;
 }
+
+int readInt(){
+    cout << "Input a number: ";
+    int res;
+    cin >> res;
+    return res;
+}
