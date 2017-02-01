@@ -127,3 +127,44 @@ void viewBinaryTree(TreeNode* root){
     InOrderTraverse(root);
     cout << endl;
 }
+
+/*
+ Would miss the last line?
+ */
+void readMatrix(vector<vector<int> >& matrix){
+    int n = 0;
+    string line;
+    cout << "Input square matrix size n: ";
+    cin >> n;
+    cout << "Input matrix numbers, line by line: " << endl;
+    getline(cin, line);
+    for(int i = 0; i < n; i++){
+        //cout << "line #" << i << endl;
+        getline(cin, line);
+	istringstream stream(line);
+	vector<int> row;
+	int num;
+	for(int j = 0; j < n; j++){
+	    stream >> num;
+	    row.push_back(num);
+	}
+	matrix.push_back(row);
+    }
+}
+
+void printMatrix(vector<vector<int> >& matrix){
+    int n = matrix.size();
+    int m = matrix[0].size();
+    cout << "[ ";
+    for(int i = 0; i < n; i++){
+        if(i != 0) cout << "  ";
+        cout << "[";
+	for(int j = 0; j < m; j++){
+	    cout << matrix[i][j];
+	    if(j < m-1) cout << " ";
+	}
+	cout << "]";
+	if(i < n-1) cout << "," << endl;
+    }
+    cout << " ]" << endl;
+}
