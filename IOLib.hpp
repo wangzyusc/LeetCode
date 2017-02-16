@@ -30,7 +30,7 @@ void readVector(vector<int>& input){
   	}
 }
 
-void viewVector(vector<int>& vec, int length = -1){
+void printVector(vector<int>& vec, int length = -1){
     if(length == -1) length = vec.size();
     cout << "[";
     for(int i = 0; i < length; i++){
@@ -56,7 +56,7 @@ ListNode* readLinkedList(){
     return ptr;
 }
 
-void viewLinkedList(ListNode* head){
+void printLinkedList(ListNode* head){
     cout << "[";
     ListNode* ptr = head;
     while(ptr != NULL){
@@ -122,15 +122,12 @@ void InOrderTraverse(TreeNode* node){
     if(node->right != NULL) InOrderTraverse(node->right);
 }
 
-void viewBinaryTree(TreeNode* root){
+void printBinaryTree(TreeNode* root){
     cout << "In-Order Traverse of tree: " << endl;
     InOrderTraverse(root);
     cout << endl;
 }
 
-/*
- Would miss the last line?
- */
 void readMatrix(vector<vector<int> >& matrix){
     int n = 0;
     string line;
