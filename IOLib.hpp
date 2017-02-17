@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <queue>
 #include <iostream>
 #include <sstream>
 
@@ -106,7 +107,7 @@ TreeNode* readBinaryTree(){
     while(stream >> num){
         nums.push_back(num);
     }
-    viewVector(nums);
+    printVector(nums);
     TreeNode* root = NULL;
     buildBinaryTree(root, nums, 0);
     return root;
