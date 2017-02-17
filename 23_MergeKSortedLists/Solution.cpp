@@ -21,18 +21,21 @@ public:
   ListNode* mergeKLists(vector<ListNode*>& lists) {
     int k = lists.size();
     if(k == 0) return NULL;
-    ListNode* head = new ListNode(0), *ptr = head;
     priority_queue<int, vector<ListNode*>, comparator> minHeap;
     for(int i = 0; i < k; i++){
       if(lists[i] != NULL) minHeap.push(lists[i]);
     }
+    if(minHeap.empty()) return NULL;
+    ListNode* head = new ListNode(0), *ptr = head;
     while(!minHeap.empty()){
       ptr->next = minHeap.top();
       ptr = ptr->next;
       minHeap.pop();
       if(ptr->next != NULL) minHeap.push(ptr->next);
     }
-    return head->next;
+    ptr = head->next;
+    delete head;
+    return ptr;
   }
 };
 
