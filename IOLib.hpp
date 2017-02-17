@@ -23,7 +23,7 @@ struct TreeNode {
 void readVector(vector<int>& input){
 	string line;
 	int num;
-	cout << "Input number elements in linked list:" << endl;
+	cout << "Input number elements in vector:" << endl;
     getline(cin, line);
     istringstream stream(line);
   	while(stream >> num){
