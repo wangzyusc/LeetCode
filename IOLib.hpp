@@ -78,11 +78,10 @@ int readInt(){
 }
 
 /*
-This version of buildBinaryTree is with problem,
-it cannot successfully build a tree. Cannot link
-child nodes to parent node.
+Fixed the bug of building problem by using reference instead of
+copy of pointer to root!
 */
-void buildBinaryTree(TreeNode* root, vector<int>& nums, int idx){
+void buildBinaryTree(TreeNode* &root, vector<int>& nums, int idx){
     int length = nums.size();
     if(idx >= length) return;
     if(idx == 0) root = new TreeNode(nums[idx]);
