@@ -96,6 +96,9 @@ void buildBinaryTree(TreeNode* &root, vector<int>& nums, int idx){
     }
 }
 
+/*
+ * This version of reading binary tree could not skip null nodes.
+ */
 TreeNode* readBinaryTree(){
     vector<int> nums;
     string line;
