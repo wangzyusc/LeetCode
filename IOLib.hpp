@@ -136,7 +136,7 @@ void printBinaryTree(TreeNode* root){
 }
 
 TreeNode* findNodeInBinaryTree(TreeNode* root, int val){
-	if(root == NULL || root->val == val) return NULL;
+	if(root == NULL || root->val == val) return root;
 	TreeNode *leftres = NULL, *rightres = NULL;
 	if(root->left) leftres = findNodeInBinaryTree(root->left, val);
 	if(leftres != NULL) return leftres;
