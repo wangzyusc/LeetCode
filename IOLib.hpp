@@ -6,6 +6,7 @@
 
 using namespace std;
 
+//Some basic data structure declaration
 struct ListNode {
     int val;
     ListNode *next;
@@ -16,10 +17,10 @@ struct TreeNode {
     int val;
     TreeNode *left;
     TreeNode *right;
-    //TreeNode() : val(0), left(NULL), right(NULL) {}
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
+//Vector I/O
 void readVector(vector<int>& input){
 	string line;
 	int num;
@@ -41,6 +42,7 @@ void printVector(vector<int>& vec, int length = -1){
     cout << "]" << endl;
 }
 
+//Linked List I/O
 ListNode* readLinkedList(){
 	string line;
     int num;
@@ -70,6 +72,7 @@ void printLinkedList(ListNode* head){
     cout << "]" << endl;
 }
 
+//Integer I/O
 int readInt(){
     cout << "Input a number: ";
     int res;
@@ -77,6 +80,7 @@ int readInt(){
     return res;
 }
 
+//Binary Tree I/O
 /*
 Fixed the bug of building problem by using reference instead of
 copy of pointer to root!
@@ -131,6 +135,17 @@ void printBinaryTree(TreeNode* root){
     cout << endl;
 }
 
+TreeNode* findNodeInBinaryTree(TreeNode* root, int val){
+	if(root == NULL || root->val == val) return NULL;
+	TreeNode *leftres = NULL, *rightres = NULL;
+	if(root->left) leftres = findNodeInBinaryTree(root->left, val);
+	if(leftres != NULL) return leftres;
+	if(root->right) rightres = findNodeInBinaryTree(root->right, val);
+	if(rightres != NULL) return rightres;
+	return NULL;
+}
+
+//Matrix (vector of vectors) I/O
 void readMatrix(vector<vector<int> >& matrix){
     int n = 0;
     string line;
