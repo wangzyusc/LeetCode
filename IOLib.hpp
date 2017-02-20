@@ -42,6 +42,16 @@ void printVector(vector<int>& vec, int length = -1){
     cout << "]" << endl;
 }
 
+void printVectorOfStrings(vector<string>& list){
+    cout << "[ ";
+    for(int i = 0; i < list.size(); i++){
+        if(i != 0) cout << "  ";
+	cout << "\"" << list[i] << "\",";
+	if(i != list.size()-1) cout << endl;
+    }
+    cout << " ]" << endl;
+}
+
 //Linked List I/O
 ListNode* readLinkedList(){
 	string line;
