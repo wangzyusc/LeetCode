@@ -83,6 +83,15 @@ void printLinkedList(ListNode* head){
     cout << "]" << endl;
 }
 
+ListNode* findListNode(ListNode* head, int target){
+    ListNode* ptr = head;
+    while(ptr != NULL){
+        if(ptr->val == target) return ptr;
+        ptr = ptr->next;
+    }
+    return NULL;
+}
+
 //Integer I/O
 int readInt(){
     cout << "Input a number: ";
