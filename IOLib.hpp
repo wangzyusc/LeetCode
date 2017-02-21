@@ -43,6 +43,19 @@ void printVector(vector<int>& vec, int length = -1){
     cout << "]" << endl;
 }
 
+//String I/O
+
+string readString(void){
+    string result;
+    cout << "Input a string: ";
+    getline(cin, result);
+    return result;
+}
+
+void printString(string s){
+    cout << s << endl;
+}
+
 void printVectorOfStrings(vector<string>& list){
     cout << "[ ";
     for(int i = 0; i < list.size(); i++){
