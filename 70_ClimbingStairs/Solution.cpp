@@ -4,15 +4,17 @@ using namespace std;
 
 class Solution {
 public:
-  int climbStairs(int n) {
-    int stairs[n];
-    stairs[n-1] = 1;
-    if(n > 1) stairs[n - 2] = 2;
-    for(int i = n-3; i >= 0; i--){
-      stairs[i] = stairs[i+1] + stairs[i+2];
+    int climbStairs(int n) {
+        if(n == 1) return 1;
+        int last = 1, current;
+        if(n > 1) current = 2;
+        for(int i = n-3; i >= 0; i--){
+            int temp = current;
+            current += last;
+            last = temp;
+        }
+        return current;
     }
-    return stairs[0];
-  }
 };
 
 int main(){
