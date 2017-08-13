@@ -24,14 +24,14 @@ struct TreeNode {
 
 //Vector I/O
 void readVector(vector<int>& input){
-	string line;
-	int num;
-	cout << "Input number elements in vector:" << endl;
+    string line;
+    int num;
+    cout << "Input number elements in vector:" << endl;
     getline(cin, line);
     istringstream stream(line);
-  	while(stream >> num){
-    	input.push_back(num);
-  	}
+    while(stream >> num){
+        input.push_back(num);
+    }
 }
 
 void printVector(vector<int>& vec, int length = -1){
@@ -39,13 +39,12 @@ void printVector(vector<int>& vec, int length = -1){
     cout << "[";
     for(int i = 0; i < length; i++){
         cout << vec[i];
-    if(i < length - 1) cout << ", ";
+        if(i < length - 1) cout << ", ";
     }
     cout << "]" << endl;
 }
 
 //String I/O
-
 string readString(void){
     string result;
     cout << "Input a string: ";
