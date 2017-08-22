@@ -44,6 +44,14 @@ void printVector(vector<int>& vec, int length = -1){
     cout << "]" << endl;
 }
 
+void printVectorOfVector(vector<vector<int> >& vec){
+    cout << "[";
+    for(auto item: vec){
+        printVector(item);
+    }
+    cout << "]" << endl;
+}
+
 //String I/O
 string readString(void){
     string result;
