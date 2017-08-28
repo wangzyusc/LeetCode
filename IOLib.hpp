@@ -46,8 +46,8 @@ void printVector(vector<int>& vec, int length = -1){
 
 void printVectorOfVector(vector<vector<int> >& vec){
     cout << "[";
-    for(auto item: vec){
-        printVector(item);
+    for(int i = 0; i < vec.size(); i++){
+        printVector(vec[i]);
     }
     cout << "]" << endl;
 }
