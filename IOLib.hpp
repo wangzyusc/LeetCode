@@ -56,12 +56,22 @@ void printVectorOfVector(vector<vector<int> >& vec){
 string readString(void){
     string result;
     cout << "Input a string: ";
-    getline(cin, result);
+    //getline(cin, result);
+    cin >> result;
     return result;
 }
 
 void printString(string s){
     cout << s << endl;
+}
+
+vector<string> readVectorOfStrings(int num){
+    vector<string> result(num);
+    //istringstream ss(cin);
+    for(int i = 0; i < num; i++){
+        cin >> result[i];
+    }
+    return result;
 }
 
 void printVectorOfStrings(vector<string>& list){
