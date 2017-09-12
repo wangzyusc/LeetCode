@@ -54,6 +54,13 @@ void printVectorOfVector(vector<vector<int> >& vec){
     cout << "]" << endl;
 }
 
+void printBoolVector(vector<bool>& vec){
+    cout << "[";
+    for(auto b: vec)
+        cout << b << " ";
+    cout << "]" << endl;
+}
+
 //String I/O
 string readString(void){
     string result;
