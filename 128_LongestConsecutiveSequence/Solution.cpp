@@ -6,20 +6,22 @@ public:
         set<int> seq;
         for(auto num : nums)
             seq.insert(num);
-        int last = *(seq.begin()) - 1;
-        int count = 0, longest = 0;
-        cout << "In set:" << endl << "[";
-        for(auto it = seq.begin(); it != seq.end(); it++){
-            cout << *it << " ";
-            if(*it == last + 1){
-                count++;
-                if(count > longest) longest = count;
+        int len = 0;
+        for(auto num: nums){
+            if(seq.find(num) == seq.end()) continue;
+            seq.erase(num);
+            int prev = num-1, next = num+1;
+            while(seq.find(prev) != seq.end()){
+                seq.erase(prev);
+                prev--;
             }
-            else count = 1;
-            last = *it;
+            while(seq.find(next) != seq.end()){
+                seq.erase(next);
+                next++;
+            }
+            len = max(next - prev - 1, len);
         }
-        cout << "]" << endl;
-        return longest;
+        return len;
     }
 };
 
