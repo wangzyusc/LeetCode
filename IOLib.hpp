@@ -37,7 +37,8 @@ void readVector(vector<int>& input){
     }
 }
 
-void printVector(vector<int>& vec, int length = -1){
+template<typename T>
+void printVector(vector<T> & vec, int length = -1){
     if(length == -1) length = vec.size();
     cout << "[";
     for(int i = 0; i < length; i++){
@@ -136,8 +137,11 @@ ListNode* findListNode(ListNode* head, int target){
 //Integer I/O
 int readInt(){
     cout << "Input a number: ";
+    string input;
+    getline(cin, input);
+    stringstream ss(input);
     int res;
-    cin >> res;
+    ss >> res;
     return res;
 }
 
