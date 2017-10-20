@@ -31,7 +31,7 @@ vector<T> readVector(void){
     string line;
     vector<T> result;
     T num;
-    cout << "Input number elements in vector:" << endl;
+    cout << "Input elements in vector:" << endl;
     getline(cin, line);
     istringstream stream(line);
     while(stream >> num){
@@ -96,6 +96,29 @@ void printVector<pair<int,int> >(vector<pair<int,int> >& vec, int length){
     cout << "]" << endl;
 }
 
+/**
+template<>
+vector<string> readVector(int num){
+    vector<string> result(num);
+    //istringstream ss(cin);
+    for(int i = 0; i < num; i++){
+        cin >> result[i];
+    }
+    return result;
+}
+**/
+
+template<>
+void printVector<string>(vector<string>& list, int length){
+    cout << "[ ";
+    for(int i = 0; i < list.size(); i++){
+        if(i != 0) cout << "  ";
+	cout << "\"" << list[i] << "\",";
+	if(i != list.size()-1) cout << endl;
+    }
+    cout << " ]" << endl;
+}
+
 //String I/O
 string readString(void){
     string result;
@@ -107,25 +130,6 @@ string readString(void){
 
 void printString(string s){
     cout << s << endl;
-}
-
-vector<string> readVectorOfStrings(int num){
-    vector<string> result(num);
-    //istringstream ss(cin);
-    for(int i = 0; i < num; i++){
-        cin >> result[i];
-    }
-    return result;
-}
-
-void printVectorOfStrings(vector<string>& list){
-    cout << "[ ";
-    for(int i = 0; i < list.size(); i++){
-        if(i != 0) cout << "  ";
-	cout << "\"" << list[i] << "\",";
-	if(i != list.size()-1) cout << endl;
-    }
-    cout << " ]" << endl;
 }
 
 //Linked List I/O
