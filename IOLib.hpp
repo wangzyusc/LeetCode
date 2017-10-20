@@ -211,27 +211,6 @@ TreeNode* findNodeInBinaryTree(TreeNode* root, int val){
 }
 
 //Matrix (vector of vectors) I/O
-void readMatrix(vector<vector<int> >& matrix){
-    int n = 0;
-    string line;
-    cout << "Input square matrix size n: ";
-    cin >> n;
-    cout << "Input matrix numbers, line by line: " << endl;
-    getline(cin, line);
-    for(int i = 0; i < n; i++){
-        //cout << "line #" << i << endl;
-        getline(cin, line);
-	istringstream stream(line);
-	vector<int> row;
-	int num;
-	for(int j = 0; j < n; j++){
-	    stream >> num;
-	    row.push_back(num);
-	}
-	matrix.push_back(row);
-    }
-}
-
 void printMatrix(vector<vector<int> >& matrix){
     int n = matrix.size();
     int m = matrix[0].size();
@@ -247,4 +226,32 @@ void printMatrix(vector<vector<int> >& matrix){
 	if(i < n-1) cout << "," << endl;
     }
     cout << " ]" << endl;
+}
+
+vector<vector<int> > readMatrix(int rows = 0, int cols = 0){
+    vector<vector<int> > result;
+    string line;
+    if(!rows || !cols){
+        cout << "Input matrix rows #m: ";
+        getline(cin, line);
+        rows = stoi(line);
+        cout << "Input matrix cols #n: ";
+        getline(cin, line);
+        cols = stoi(line);
+    }
+    cout << "Input matrix elements line by line: " << endl;
+    for(int i = 0; i < rows; i++){
+        //cout << "line #" << i << endl;
+        getline(cin, line);
+	istringstream stream(line);
+	vector<int> row;
+	int num;
+	for(int j = 0; j < cols; j++){
+	    stream >> num;
+	    row.push_back(num);
+	}
+	result.push_back(row);
+    }
+    printMatrix(result);
+    return result;
 }
