@@ -26,15 +26,37 @@ struct TreeNode {
 };
 
 //Vector I/O
-void readVector(vector<int>& input){
+template<typename T>
+vector<T> readVector(void){
     string line;
-    int num;
+    vector<T> result;
+    T num;
     cout << "Input number elements in vector:" << endl;
     getline(cin, line);
     istringstream stream(line);
     while(stream >> num){
-        input.push_back(num);
+        result.push_back(num);
     }
+    return result;
+}
+
+template<>
+vector<pair<int, int> > readVector<pair<int, int> >(void){
+    cout << "Please enter pair values in form of \"1 2\", line by line:" << endl;
+    vector<pair<int,int>> result;
+    string line;
+    string temp;
+    int first, second;
+    while(getline(cin, line)){
+        if(line.empty()) break;
+        stringstream ss(line);
+        getline(ss, temp, ' ');
+        first = stoi(temp);
+        getline(ss, temp);
+        second = stoi(temp);
+        result.push_back(make_pair(first, second));
+    }
+    return result;
 }
 
 template<typename T>
@@ -48,7 +70,8 @@ void printVector(vector<T> & vec, int length = -1){
     cout << "]" << endl;
 }
 
-void printVectorOfVector(vector<vector<int> >& vec){
+template<>
+void printVector<vector<int> >(vector<vector<int> >& vec, int length){
     cout << "[";
     for(int i = 0; i < vec.size(); i++){
         printVector(vec[i]);
@@ -56,10 +79,20 @@ void printVectorOfVector(vector<vector<int> >& vec){
     cout << "]" << endl;
 }
 
-void printBoolVector(vector<bool>& vec){
+template<>
+void printVector<bool>(vector<bool>& vec, int length){
     cout << "[";
     for(auto b: vec)
         cout << b << " ";
+    cout << "]" << endl;
+}
+
+template<>
+void printVector<pair<int,int> >(vector<pair<int,int> >& vec, int length){
+    cout << "[";
+    for(auto p: vec){
+        cout << "(" << p.first << ", " << p.second << "), "; 
+    }
     cout << "]" << endl;
 }
 
