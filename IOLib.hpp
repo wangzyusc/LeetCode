@@ -96,18 +96,6 @@ void printVector<pair<int,int> >(vector<pair<int,int> >& vec, int length){
     cout << "]" << endl;
 }
 
-/**
-template<>
-vector<string> readVector(int num){
-    vector<string> result(num);
-    //istringstream ss(cin);
-    for(int i = 0; i < num; i++){
-        cin >> result[i];
-    }
-    return result;
-}
-**/
-
 template<>
 void printVector<string>(vector<string>& list, int length){
     cout << "[ ";
@@ -291,4 +279,14 @@ vector<vector<int> > readMatrix(int rows = 0, int cols = 0){
     }
     printMatrix(result);
     return result;
+}
+
+//Set I/O
+template<typename T>
+void printSet(T & mset){
+    cout << "(";
+    for(auto it: mset){
+        cout << it << ", ";
+    }
+    cout << ")" << endl;
 }
