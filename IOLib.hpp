@@ -59,6 +59,25 @@ vector<pair<int, int> > readVector<pair<int, int> >(void){
     return result;
 }
 
+template<>
+vector<pair<string, string> > readVector<pair<string, string> >(void){
+    cout << "Please enter pair strings in form of \"a b\", line by line:" << endl;
+    vector<pair<string, string>> result;
+    string line;
+    string temp;
+    string first, second;
+    while(getline(cin, line)){
+        if(line.empty()) break;
+        stringstream ss(line);
+        getline(ss, temp, ' ');
+        first = temp;
+        getline(ss, temp);
+        second = temp;
+        result.push_back(make_pair(first, second));
+    }
+    return result;
+}
+
 template<typename T>
 void printVector(vector<T> & vec, int length = -1){
     if(length == -1) length = vec.size();
@@ -289,4 +308,14 @@ void printSet(T & mset){
         cout << it << ", ";
     }
     cout << ")" << endl;
+}
+
+//Map I/O
+template<typename T>
+void printMap(T & _map){
+    cout << "{";
+    for(auto it: _map){
+        cout << it.first << ": " << it.second << ", ";
+    }
+    cout << "}" << endl;
 }
