@@ -111,8 +111,8 @@ void printVector<string>(vector<string>& list, int length){
 string readString(void){
     string result;
     cout << "Input a string: ";
-    //getline(cin, result);
-    cin >> result;
+    getline(cin, result);
+    //cin >> result;
     return result;
 }
 
