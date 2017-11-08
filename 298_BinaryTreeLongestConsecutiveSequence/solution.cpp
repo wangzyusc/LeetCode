@@ -47,3 +47,21 @@ public:
         return res;
     }
 };
+
+/* Here is the top-down approach, much more clear */
+class Solution {
+public:
+    int longestConsecutive(TreeNode* root) {
+        if(root == nullptr) return 0;
+        int longest = 0;
+        dfs(root, root->val, 1, longest);
+        return longest;
+    }
+    void dfs(TreeNode* root, int parent, int curlen, int& longest){
+        if(root->val == parent + 1) curlen++;
+        else curlen = 1;
+        longest = max(longest, curlen);
+        if(root->left) dfs(root->left, root->val, curlen, longest);
+        if(root->right) dfs(root->right, root->val, curlen, longest);
+    }
+};
