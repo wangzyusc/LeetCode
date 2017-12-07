@@ -28,6 +28,25 @@ public:
   }
 };
 
+/***
+Another simpler swap method, no other temp variables.
+***/
+class Solution2 {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        ListNode tmphead(0), *last = &tmphead;
+        tmphead.next = head;
+        while(head && head->next){
+            last->next = head->next;
+            last = head;
+            head = head->next->next;
+            last->next->next = last;
+            last->next = head;
+        }
+        return tmphead.next;
+    }
+};
+
 int main(void){
     ListNode* head = readLinkedList();
     Solution solution;
