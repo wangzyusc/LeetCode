@@ -30,6 +30,26 @@ public:
   }
 };
 
+//Slightly more concise version.
+class Solution1 {
+public:
+    bool isValid(string s) {
+        stack<char> prev;
+        for(auto c: s){
+            switch(c){
+                case '(': prev.push(c); break;
+                case '[': prev.push(c); break;
+                case '{': prev.push(c); break;
+                case ')': if(prev.empty() || prev.top() != '(') return false; prev.pop(); break;
+                case ']': if(prev.empty() || prev.top() != '[') return false; prev.pop(); break;
+                case '}': if(prev.empty() || prev.top() != '{') return false; prev.pop(); break;
+                default: break;
+            }
+        }
+        return prev.empty();
+    }
+};
+
 int main(int argc, char* argv[]){
     if(argc != 2){
         cout << "Number of Input parameters wrong!" << endl;
