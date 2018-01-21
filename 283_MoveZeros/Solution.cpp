@@ -18,6 +18,19 @@ public:
   }
 };
 
+/* More concise version */
+/* This solution uses Two-pointer method */
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        if(nums.empty()) return;
+        int j = 0;
+        for(auto &n: nums){
+            if(n) swap(n, nums[j++]);
+        }
+    }
+};
+
 int main(void){
   vector<int> nums;
   readVector(nums);
