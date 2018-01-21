@@ -179,6 +179,15 @@ ListNode* findListNode(ListNode* head, int target){
     return NULL;
 }
 
+void deleteLinkedList(ListNode* head){
+    ListNode* temp = NULL;
+    while(head){
+        temp = head->next;
+        delete head;
+        head = temp;
+    }
+}
+
 //Integer I/O
 int readInt(){
     cout << "Input a number: ";
