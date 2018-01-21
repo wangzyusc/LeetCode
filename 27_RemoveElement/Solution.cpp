@@ -18,6 +18,21 @@ public:
   }
 };
 
+/* More concise version */
+/* This solution uses Two-Pointer method */
+class Solution2 {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        if(nums.empty()) return 0;
+        int j = 0;
+        for(auto n: nums){
+            if(n != val)
+                nums[j++] = n;
+        }
+        return j;
+    }
+};
+
 int main(){
     int val;
     vector<int> input;
