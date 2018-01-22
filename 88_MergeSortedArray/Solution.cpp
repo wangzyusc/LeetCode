@@ -21,12 +21,21 @@ public:
     }
 };
 
+/* More concise version */
+class Solution2 {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        --m, --n;
+        int i = m + n + 1;
+        while(n >= 0)
+            nums1[i--] = (m < 0 || nums2[n] > nums1[m]) ? nums2[n--] : nums1[m--];
+    }
+};
+
 int main(void){
-    vector<int> nums1, nums2;
-    readVector(nums1);
-    readVector(nums2);
+    vector<int> nums1 = readVector<int>(), nums2 = readVector<int>();
     int m = nums1.size(), n = nums2.size();
-    for(int i = 0; i < nums2.size(); i++){
+    for(auto& n: nums2){
         nums1.push_back(0);
     }
     cout << "nums1: ";
