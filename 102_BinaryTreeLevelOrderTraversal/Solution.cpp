@@ -11,6 +11,7 @@ using namespace std;
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+/* Recursive method */
 class Solution {
 public:
     vector<vector<int> > levelOrder(TreeNode* root) {
@@ -26,6 +27,30 @@ public:
         nums[depth].push_back(root->val);
         if(root->left) traverse(root->left, nums, depth+1);
         if(root->right) traverse(root->right, nums, depth+1);
+    }
+};
+
+/* Iterative method */
+class Solution2 {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        if(!root) return {};
+        vector<vector<int>> result;
+        queue<TreeNode*> queue;
+        queue.push(root);
+        while(!queue.empty()){
+            int len = queue.size();
+            vector<int> level;
+            for(int i = 0; i < len; i++){
+                auto node = queue.front();
+                level.push_back(node->val);
+                queue.pop();
+                if(node->left) queue.push(node->left);
+                if(node->right) queue.push(node->right);
+            }
+            result.push_back(level);
+        }
+        return result;
     }
 };
 
