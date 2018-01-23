@@ -47,6 +47,28 @@ public:
     }
 };
 
+/* Actually this problem could be reduced to a BFS problem... 
+ * BFS traverses the tree level by level, so could connect each level in the queue.
+ */
+class Solution2 {
+public:
+    void connect(TreeLinkNode *root) {
+        if(!root) return;
+        queue<TreeLinkNode*> queue;
+        queue.push(root);
+        while(!queue.empty()){
+            int len = queue.size();
+            while(len-- > 0){
+                auto curr = queue.front();
+                queue.pop();
+                curr->next = len ? queue.front() : NULL;
+                if(curr->left) queue.push(curr->left);
+                if(curr->right) queue.push(curr->right);
+            }
+        }
+    }
+};
+
 int main(void){
     return 0;
 }
