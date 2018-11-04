@@ -8,16 +8,20 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-//Reverse the first half of linked list in O(n), then iterate through
-first and second halves to decide if they equal to each other.
+/* Reverse the first half of linked list in O(n), then iterate through
+ * first and second halves to decide if they equal to each other.
+ * Time: O(n), Space: O(1).
+ */
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
+        //Find the mid-point
         ListNode* mid = head, *end = head;
         while(end && end->next){
             mid = mid->next;
             end = end->next->next;
         }
+        //Reverse the first half
         ListNode* prev = NULL, *curr = head, *temp = NULL;
         while(curr != mid){
             temp = curr->next;
@@ -25,6 +29,7 @@ public:
             prev = curr;
             curr = temp;
         }
+        //Compare the two halves
         curr = (end == NULL) ? mid : mid->next;
         while(curr){
             if(prev->val != curr->val) return false;
